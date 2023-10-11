@@ -1,8 +1,8 @@
 {
-  "name": "vite-project",
-  "private": true,
-  "version": "0.0.0",
+  "name": "softuni-vue-js-starter",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,9 +11,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@vueuse/core": "^10.4.1",
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^1.0.0-beta.25",

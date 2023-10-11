@@ -1,63 +1,46 @@
-<script>
-const focus = {
-  mounted: (el, binding, vnode) => {
-    console.log(el, binding, vnode);
-    el.focus();
-  },
-};
+<script setup>
+import { ref } from 'vue';
 
-export default {
-  directives: {
-    focus,
-  },
-  beforeRouteEnter(to, from) {
-    console.log('beforeRouteUpdate', to, from);
-    return true;
-  },
-  props: {
-    msg: {
-      type: String,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      link: {
-        url: 'user/edit',
-        label: 'Edit your profile',
-        rou: this.$route,
-      },
-    };
-  },
-  watch: {
-    '$route.params': function (to, from) {
-      console.log(to, from);
-    },
-  },
-  methods: {
-    updateName() {
-      this.fullName = 'John Kennedy';
-    },
-    onRouter() {
-      this.$router.push('haha');
-    },
-  },
-};
+defineProps({
+  msg: String,
+});
+
+const count = ref(0);
 </script>
 
 <template>
-  <h1>{{ $route.fullPath }}</h1>
-  <router-link :to="link.url">
-    {{ link.label }}
-  </router-link>
-  <button @click="onRouter">
-    BTN router test
-  </button>
-  <input
-    id=""
-    v-focus:[directiveArg].some.thing="'noice'"
-    type="text"
-    name=""
-    placeholder="ha"
-  >
+  <div class="container" style="text-align:center">
+    <img src="../assets/vue.svg" alt="Logo" style="width: 10rem; margin: 1rem auto;">
+    <h1>{{ msg }}</h1>
+
+    <div class="card">
+      <button type="button" @click="count++">
+        count is {{ count }}
+      </button>
+      <p>
+        Edit
+        <code>components/HelloWorld.vue</code> to test HMR
+      </p>
+    </div>
+
+    <p>
+      Check out
+      <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite
+      starter
+    </p>
+    <p>
+      Install
+      <a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>
+      in your IDE for a better DX
+    </p>
+    <p class="read-the-docs">
+      Click on the Vite and Vue logos to learn more
+    </p>
+  </div>
 </template>
+
+<style scoped>
+.read-the-docs {
+  color: #888;
+}
+</style>

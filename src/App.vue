@@ -1,11 +1,13 @@
-<script setup>
-import { ref } from 'vue';
-import MyInput from './components/MyInput.vue';
-import ComponentsStarter from './resourcess/ComponentsStarter.vue';
+<script>
+import HelloWorld from './components/HelloWorld.vue';
 
-const selected = ref('');
+export default {
+  components: {
+    HelloWorld,
+  },
+};
 </script>
 
 <template>
-  <ComponentsStarter />
+  <HelloWorld />
 </template>
